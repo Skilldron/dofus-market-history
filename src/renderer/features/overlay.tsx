@@ -4,27 +4,27 @@ import "./overlay.css";
 const Overlay: React.FC = () => {
   useEffect(() => {
     // Par défaut, on peut cliquer à travers
-    window.electron.clickTrough();
+    window.electronAPI.clickTrough();
 
     const interactiveElements = document.querySelectorAll(".interactive");
     interactiveElements.forEach((element) => {
       element.addEventListener("mouseenter", () => {
-        window.electron.skipClickTrough();
+        window.electronAPI.skipClickTrough();
       });
 
       element.addEventListener("mouseleave", () => {
-        window.electron.clickTrough();
+        window.electronAPI.clickTrough();
       });
     });
 
     return () => {
       interactiveElements.forEach((element) => {
         element.removeEventListener("mouseenter", () => {
-          window.electron.skipClickTrough();
+          window.electronAPI.skipClickTrough();
         });
 
         element.removeEventListener("mouseleave", () => {
-          window.electron.clickTrough();
+          window.electronAPI.clickTrough();
         });
       });
     };

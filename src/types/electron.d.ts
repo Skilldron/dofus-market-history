@@ -11,4 +11,4 @@ declare interface ElectronAPI {
 }
 
 // Cette ligne est importante pour que le fichier soit considéré comme un module
-export {ElectronAPI};
+export { ElectronAPI };
