@@ -11,6 +11,12 @@
     "outDir": "dist",
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@types/*": ["src/types/*"],
+      "@components/*": ["src/components/*"]
+    },
+    "typeRoots": ["node_modules/@types", "src/types"]
   }
 }

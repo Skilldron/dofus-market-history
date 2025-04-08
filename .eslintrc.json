@@ -12,5 +12,16 @@
     "plugin:import/electron",
     "plugin:import/typescript"
   ],
-  "parser": "@typescript-eslint/parser"
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
+        "paths": ["src"]
+      },
+      "typescript": {} // Assurez-vous que eslint-import-resolver-typescript est installé
+    }
+  },
+  "rules": {
+    // vos règles existantes...
+  }
 }
