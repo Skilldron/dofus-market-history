@@ -1,8 +1,8 @@
 {
-  "name": "dofus-market-history",
-  "productName": "dofus-market-history",
+  "name": "dofus-community-shop",
+  "productName": "dofus-community-shop",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "Overlay dofus",
   "main": ".vite/build/main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -14,7 +14,7 @@
   "keywords": [],
   "author": {
     "name": "Harold",
-    "email": "harold@openitech.fr"
+    "email": "harold.delory@gmail.com"
   },
   "license": "MIT",
   "devDependencies": {
