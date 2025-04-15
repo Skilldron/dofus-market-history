@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./overlay.css";
+import FloatingIcon from "@/app/components/floating-icon";
 
-const Overlay: React.FC = () => {
+const Overlay = () => {
   useEffect(() => {
     // Par défaut, on peut cliquer à travers
     window.electronAPI.clickTrough();
@@ -32,13 +33,7 @@ const Overlay: React.FC = () => {
 
   return (
     <div className="overlay">
-      <h2>Overlay Dofus</h2>
-      <button className="interactive" onClick={() => alert("Historique")}>
-        📈 Historique
-      </button>
-      <button className="interactive" onClick={() => alert("Pas à travers")}>
-        📈 Pas à travers
-      </button>
+      <FloatingIcon />
     </div>
   );
 };

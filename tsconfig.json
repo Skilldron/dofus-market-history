@@ -15,7 +15,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@types/*": ["src/types/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/app/components/*"],
+      "@assets/*": ["src/assets/*"]
     },
     "typeRoots": ["node_modules/@types", "src/types"]
   }

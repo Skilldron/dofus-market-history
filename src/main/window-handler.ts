@@ -1,7 +1,7 @@
-import { BrowserWindow, screen } from "electron";
+import { BrowserWindow, screen, Tray, Menu, nativeImage } from "electron";
 import path from "node:path";
 
-export function createWindow(): void {
+function createWindow(): BrowserWindow {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize;
 
   // Create the browser window.
@@ -29,6 +29,23 @@ export function createWindow(): void {
     );
   }
 
+  return mainWindow;
   // Open the DevTools.
-//   mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 }
+
+function createTray(mainWindow: BrowserWindow | null, app: Electron.App) {
+
+  const trayIcon = nativeImage.createFromPath(path.join(__dirname, "assets", "logo_png.png"))
+  const tray = new Tray(trayIcon)
+  const contextMenu = Menu.buildFromTemplate([
+    { label: "Masquer", click: () => mainWindow?.hide() },
+    { label: "Développeur", click: () => mainWindow?.webContents.openDevTools() },
+    { label: "Afficher", click: () => mainWindow?.show() },
+    { label: "Quitter", click: () => app.quit() },
+  ]);
+  tray.setToolTip("Dofus Community Shop");
+  tray.setContextMenu(contextMenu);
+}
+
+export { createWindow, createTray };
