@@ -41,9 +41,11 @@
     "vite": "^5.4.17"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.7.0",
     "electron-squirrel-startup": "^1.0.1",
     "framer-motion": "^12.6.3",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0"
   }
 }
