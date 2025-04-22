@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, PanInfo } from "framer-motion";
-import imgUrl from "../../assets/logo.jpeg?assets";
+import FloatingIcon from "./components/floatingIcon";
 
 const ICON_SIZE = 50;
 const WINDOW_WIDTH = 300;
@@ -14,7 +14,7 @@ const getSavedPosition = () => {
 const clamp = (value: number, min: number, max: number) =>
   Math.min(Math.max(value, min), max);
 
-export default function FloatingTool() {
+export default function MainWindow() {
   const [position, setPosition] = useState(getSavedPosition());
   const [expanded, setExpanded] = useState(false);
   const wasDragging = useRef(false);
@@ -114,24 +114,7 @@ export default function FloatingTool() {
             </div>
           </>
         ) : (
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              color: "#fff",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: "bold",
-              userSelect: "none",
-              transformOrigin: "top right",
-              backgroundImage: `url('${imgUrl}')`,
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              opacity: 0.3,
-            }}
-          ></div>
+          <FloatingIcon />
         )}
       </motion.div>
     </motion.div>

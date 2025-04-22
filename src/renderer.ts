@@ -27,4 +27,4 @@
  */
 
 import './app/index.css';
-import './app/app';
+import './app/main';

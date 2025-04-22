@@ -18,7 +18,7 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx", ".d.ts"],
         "paths": ["src"]
       },
-      "typescript": {} // Assurez-vous que eslint-import-resolver-typescript est installé
+      "typescript": {}
     }
   },
   "rules": {

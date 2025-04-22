@@ -1,14 +1,40 @@
-import { createRoot } from "react-dom/client";
-import Overlay from "./features/overlay/overlay";
-import { StrictMode } from "react";
-import { Provider } from "react-redux";
-import { store } from "./config/store";
+import { useEffect } from "react";
+import MainWindow from "./features/mainWindow/mainWindow";
 
-const root = createRoot(document.body);
-root.render(
-  <StrictMode>
-    <Provider store={store}>
-      <Overlay />
-    </Provider>
-  </StrictMode>
-);
+const App = () => {
+  useEffect(() => {
+    // Par défaut, on peut cliquer à travers
+    window.electronAPI.clickTrough();
+
+    const interactiveElements = document.querySelectorAll(".interactive");
+    interactiveElements.forEach((element) => {
+      element.addEventListener("mouseenter", () => {
+        window.electronAPI.skipClickTrough();
+      });
+
+      element.addEventListener("mouseleave", () => {
+        window.electronAPI.clickTrough();
+      });
+    });
+
+    return () => {
+      interactiveElements.forEach((element) => {
+        element.removeEventListener("mouseenter", () => {
+          window.electronAPI.skipClickTrough();
+        });
+
+        element.removeEventListener("mouseleave", () => {
+          window.electronAPI.clickTrough();
+        });
+      });
+    };
+  }, []);
+
+  return (
+    <div className="overlay">
+      <MainWindow />
+    </div>
+  );
+};
+
+export default App;
